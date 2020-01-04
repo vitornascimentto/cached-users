@@ -8,6 +8,19 @@ def get_username ():
 
     return sys.argv[2]
 
+def username_already_exist (csv, username):
+    with open('cached.csv', 'r') as csv:
+        content = csv.readlines()
+
+        for i in content:
+            data_split = i.split(',') 
+
+            if username in data_split:
+                return_result = {'email': data_split[1], 'website': data_split[2], 'hemisferio': data_split[3][:3:]}
+                return return_result
+
+        return False
+
 def request_username (username, url, csv):
     params = {'username': username}
 

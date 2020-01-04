@@ -1,4 +1,4 @@
-from utils import get_username, request_username
+from utils import get_username, request_username, username_already_exist
 
 if __name__ == "__main__":
 
@@ -6,5 +6,10 @@ if __name__ == "__main__":
     URL = 'https://jsonplaceholder.typicode.com/users'
     USERNAME = get_username()
 
-    response_api = request_username(USERNAME, URL, CSV)
-    print(f'API: {response_api}')
+    exist = username_already_exist(CSV, USERNAME)
+    if (exist != False): 
+        print(f'CACHED: {exist}')
+
+    if not exist:
+        request_api = request_username(USERNAME, URL, CSV)
+        print(f'API: {request_api}')
