@@ -42,7 +42,6 @@ def request_username (username, url, csv):
 
     if os.path.getsize('cached.csv') > 0:
         with open('cached.csv', 'r') as csv:
-            
             csv = csv.readlines()
 
             csv.append(f"{result['username']},{result['email']},{result['website']},{result['hemisferio']}\n")
