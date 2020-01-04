@@ -26,6 +26,9 @@ def request_username (username, url, csv):
 
     api = requests.get(url, params=params)
 
+    if len(api.json()) == 0:
+        return "404 not found - Usuário não existe na base de dados."
+
     result = api.json()[0]
 
     if float(result['address']['geo']['lat']) < 0:

@@ -7,9 +7,9 @@ if __name__ == "__main__":
     USERNAME = get_username()
 
     exist = username_already_exist(CSV, USERNAME)
-    if (exist != False): 
+    
+    if exist: 
         print(f'CACHED: {exist}')
-
-    if not exist:
+    else:
         request_api = request_username(USERNAME, URL, CSV)
         print(f'API: {request_api}')
