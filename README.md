@@ -8,3 +8,4 @@ Para executar o programa digite o seguinte comando: python3 **main.py** *-userna
   - Flag que indica que em seguida deve vir um nome de usuário
 - username: 
   - Username do usuário
+  
